@@ -1,0 +1,43 @@
+name: Flutter Build APK
+
+# This tells GitHub to run the script every time you "push" code to the 'main' branch
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    # We are telling GitHub to use a Linux server (Ubuntu) to build your app
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Download your code from GitHub onto the Linux server
+      - uses: actions/checkout@v3
+
+      # Step 2: Set up Java (Android apps need Java to build)
+      - name: Install Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      # Step 3: Install Flutter on the Linux server
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.x'
+
+      # Step 4: Download your project packages (firebase, provider, etc.)
+      - name: Get dependencies
+        run: flutter pub get
+
+      # Step 5: Build the professional "Release" version of your APK
+      - name: Build APK
+        run: flutter build apk --release
+
+      # Step 6: Save the finished APK file so you can download it
+      - name: Upload APK Result
+        uses: actions/upload-artifact@v3
+        with:
+          name: school-erp-production-app
+          path: build/app/outputs/flutter-apk/app-release.apk
