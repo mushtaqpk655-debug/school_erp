@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "761185750489",
+    "project_id": "school-erp-e478e",
+    "storage_bucket": "school-erp-e478e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:761185750489:android:60f71fe130332ae4799dc8",
+        "android_client_info": {
+          "package_name": "com.mushtaq.school_erp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLkhPW4QV2FTrgGMUJEY5Q3L4qv_AhvjM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
